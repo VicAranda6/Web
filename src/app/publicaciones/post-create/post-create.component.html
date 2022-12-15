@@ -1,0 +1,97 @@
+
+<mat-card>
+  <mat-spinner *ngIf = "isLoading"></mat-spinner>
+  <form [formGroup]="form" (submit)="onSavePost()" *ngIf = "!isLoading">
+    <mat-form-field>
+      <input
+      matInput
+      type="text"
+      formControlName="nombre"
+      placeholder="Nombre">
+      <mat-error *ngIf="form.get('nombre').invalid">Por favor ingrese el nombre</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+      matInput
+      type="text"
+      formControlName="apellido"
+      placeholder="Apellido:">
+      <mat-error *ngIf="form.get('apellido').invalid">Por favor ingrese el apellido</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+      matInput
+      type="date"
+      formControlName="fecha"
+      placeholder="Fecha de nacimiento">
+      <mat-error *ngIf="form.get('fecha').invalid">Por favor ingrese la fecha de nacimiento</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+      matInput
+      type="text"
+      formControlName="address"
+      placeholder="Dirección">
+      <mat-error *ngIf="form.get('address').invalid">Por favor ingrese la dirección</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+      matInput
+      type="text"
+      formControlName="number"
+      placeholder="Número Telefonico">
+      <mat-error *ngIf="form.get('number').invalid">Por favor ingrese el número telefonico</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+      matInput
+      type="text"
+      formControlName="area"
+      placeholder="Area de Trabajo">
+      <mat-error *ngIf="form.get('area').invalid">Por favor ingrese el Area de trabajo</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+      matInput
+      type="text"
+      formControlName="nivel"
+      placeholder="Nivel de estudio">
+      <mat-error *ngIf="form.get('nivel').invalid">Por favor ingrese el nivel de estudio</mat-error>
+    </mat-form-field>
+    <mat-form-field >
+
+        <input
+        matInput
+        type="number"
+        formControlName="social"
+        placeholder="Número de la Seguridad Social">
+        <mat-error *ngIf="form.get('social').invalid">Por favor ingrese el Número de la Seguridad Social.</mat-error>
+
+    </mat-form-field>
+    <mat-form-field >
+      <input
+        matInput
+        type="text"
+        formControlName="estado"
+        placeholder="Estado Civil">
+        <mat-error *ngIf="form.get('estado').invalid">Por favor ingrese el Estado Civil.</mat-error>
+
+
+    </mat-form-field>
+    <div>
+      <p>Foto del trabajador</p>
+      <button mat-stroked-button type="button" (click)="filePicker.click()">Selecciona Imagen</button>
+      <input type="file" #filePicker (change)="onImagePicked($event)">
+    </div>
+    <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+      <img [src]="imagePreview" [alt]="form.value.name">
+    </div>
+    <button
+    id="save"
+    mat-raised-button
+    color="primary"
+    type="submit">Agregar</button>
+  </form>
+
+</mat-card>
+

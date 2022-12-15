@@ -1,0 +1,38 @@
+#inicio{
+  margin: 0;
+  width: auto;
+}
+#div{
+  height: auto;
+  width: 50rem;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  background-color:rgb(0, 0, 0);
+  opacity: 0.8;
+  margin: auto;
+  text-align: center;
+}
+
+img{
+  margin: auto;
+}
+
+#trabajadoes{
+  width: 70rem;
+}
+
+.contenedor{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.centrado{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 1rem;
+  color: white;
+  opacity: 1.0;
+}

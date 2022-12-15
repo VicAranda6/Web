@@ -1,0 +1,30 @@
+<mat-card id="list">
+  <br><mat-spinner style="margin:auto;" *ngIf="isLoading"></mat-spinner>
+  <mat-accordion multi="true" *ngIf="posts.length > 0 && !isLoading">
+    <mat-expansion-panel *ngFor="let post of posts">
+      <mat-expansion-panel-header *ngIf="search == '' && link == '/list'">
+        {{post.nombre}} {{post.apellido}}
+      </mat-expansion-panel-header>
+
+      <div class="post-image">
+        <img [src]="post.imagePath" alt="post.name">
+      </div>
+        <p>Fecha de nacimiento: {{post.fecha}}</p>
+        <p>Dirección: {{post.address}}</p>
+        <p>Número: {{post.number}}</p>
+        <p>Area de trabajo: {{post.area}}</p>
+        <p>Nivel de estudio: {{post.nivel}}</p>
+        <p>Número de la Seguridad Social: {{post.social}}</p>
+        <p>Estado Civil: {{post.estado}}</p>
+        <mat-action-row>
+          <a mat-button color="primary" [routerLink]="['/edit', post.id]">Editar</a>
+          <button type="button" (click)="deleteDocument(post.id)" mat-button color="warn">Eliminar</button>
+        </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <p class="info-text mat-body-1" *ngIf="posts.length <= 0 && !isLoading">
+
+  No hay Trabajadores disponibles
+  </p>
+
+</mat-card>
